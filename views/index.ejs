@@ -7,43 +7,51 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <style>
     .box{background-color: gainsboro; color:black;}
-    .profile-image{width:228px;height:228px;}
+    .profile-image{width:208px;height:208px;object-fit: cover;  border: 3px solid #343a40;  }
     .img-thumbnail{width: 170px; height: 170px;}
+    .logo{width: 50px; height: 50px;}
     @media only screen and (max-width: 600px) {
-      .profile-image{width: 128px; height: 128px;}
+      .profile-image{width: 108px; height: 108px;}
+      .logo{width: 25px; height: 25px;}
 }
   </style>
   </head>
   <body>
 
     <div class="container ">
-      <div class="row">
-        <div class="col mb-3">
-          <div class="box rounded p-2">
-            <h1> Portfolio </h1>
+      <div class="col mb-3">
+        <div class="row">
+          <div class="box rounded p-2 d-flex justify-content-between align-items-center">
+            <h1>Portfolio</h1>
+            <button id="theme-toggle" class="btn btn-primary">Switch to Dark Mode</button>
           </div>
+        </div>
       </div>
-      </div>
-
+      
     <!--- Image Column -->
         <div class="row">
             <div class="col-lg-8 col-md-12 col-sm-12 mb-3">
+              
               <div class="row">
-
-              <div class="box p-3 rounded border border-5  ">
-                <div class="row">
-                <div class="col-6">
-                <img  class="profile-image rounded-circle" src="images/PM.jpg" alt="Profile Image">
-                  <a href="#"><h3>Muskanpreet Kaur</h3></a>
+                <div class="box p-3 rounded border border-5">
+                    <div class="row align-items-center">
+                        <div class="col-6 text-center">
+                            <img class="profile-image rounded-circle" src="images/PM.jpg" alt="Profile Image">
+                            <a href="#"><h3>Muskanpreet Kaur</h3></a>
+                           
+                            
+                        </div>
+                        <div class="col-6">
+                          <p>Web Developer with a passion for front-end and back-end development, open-source contributions, and UI/UX design.</p>
+                            <p>Email: muskanpreet@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Montreal, Canada</p>                         
+                             <p><a href="https://github.com/muskanchohla" target="_blank"><i class="fab fa-github"></i> <img class="logo" src="images/github.png"> GitHub </a> &nbsp;&nbsp;
+                               <a href="https://www.linkedin.com/in/muskanpreet-kaur-ab83a8308/" target="_blank"><i class="fab fa-linkedin"></i>  <img class="logo" src="images/linkedin.png"> LinkedIn</a></p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6">
-                  <p> muskanpreet@gmail.com </p>
-                  <p><a href="https://github.com/muskanchohla" target="_blank">github </a> </p>
-                  <p> <a href="https://www.linkedin.com/in/muskanpreet-kaur-ab83a8308/" target="_blank"> LinkedIn </a> 
-                </div>
-                </div>
-                </div>
-                </div>
+            </div>
+            
     
               <div class="row mt-3">
             <nav>
@@ -76,7 +84,7 @@
               <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
                 <ul class="p-3">
                   <li><strong>Customer Service Agent</strong> – Start Date: July 29, 2023</li>
-                  <li style="color:blue">Tim Hortons, Montreal, Canada</li>
+                  <li >Tim Hortons, Montreal, Canada</li>
                   <ul>
                       <li>Effectively communicate with a diverse customer base to ensure a high level of service.</li>
                       <li>Work effectively with team members to enhance service efficiency and customer satisfaction.</li>
@@ -106,41 +114,61 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="extraLargeModalLabel">  <%= popup_record.title %></h5>
+                <h5 class="modal-title" id="extraLargeModalLabel"> <%= popup_record.title %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <table>
-                <tr>
-                  <td>Project Description</td>
-                </tr>
-                <tr><td>
-                  <ul>
-                    <ul>
-                      <% popup_record.description.forEach(function(description_list) { %>
-                        <li><%= description_list %></li>
-                      <% }); %>
-                    </ul>
-                </ul>
-                
-                </td></tr>
-                <tr>
-                  <td align="center">
-                    <a href="https://github.com/muskanchohla" target="_blank">github </a>
-                    <video src="videos/kids game video.mov" height="300" width="350" controls></video>
-                  </td>
-                </tr>
-              </table>
+              <div class="row">
+                <!-- First Column: Text Content -->
+                <div class="col-md-6">
+                  <table class="table">
+                    <tr>
+                      <td><strong>Project Description</strong></td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <ul>
+                          <% popup_record.description.forEach(function(description_list) { %>
+                            <li><%= description_list %></li>
+                          <% }); %>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><strong>Technology Used:</strong></td>
+                      </tr>
+                      <tr></tr>
+                      <td><%= popup_record.technology %></td>
+                    </tr>
+                    <tr>
+                      <td>
+                      <a href="https://github.com/muskanchohla" target="_blank" class="btn btn-primary mb-3">GitHub</a>
+                    </td>
+                    </tr>
+                  </table>
+                </div>
+  
+                <!-- Second Column: Image and Video -->
+                <div class="col-md-6 text-center">
+                  
+                  <div>
+                    <video id="popupVideo" src="videos/<%= popup_record.imgvid %>" height="300" width="100%" controls autoplay></video>
+                    <img id="popupImage" src="images/<%= popup_record.imgvid %>" height="300" width="100%" alt="" style="display: none;">
+                  </div>
+                </div>
+              </div>
             </div>
+  
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               
             </div>
         </div>
     </div>
-</div>
-<% }); %>
- <!-- end of popup -->
+  </div>
+  
+  <% }); %>
+  <!-- end of popup -->
+  
                   </div>
                 </div>
                 <% }); %>
@@ -175,5 +203,32 @@
      
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+   
+      const themeToggleButton = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+
+      themeToggleButton.addEventListener('click', function() {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        htmlElement.setAttribute('data-bs-theme', newTheme);
+        themeToggleButton.textContent = newTheme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+      });
+   
+            const video = document.getElementById('popupVideo');
+        const image = document.getElementById('popupImage');
+
+        // When the video source is invalid
+        video.onerror = function() {
+          video.style.display = 'none'; // Hide the video
+          image.style.display = 'block'; // Show the image
+        };
+
+        // If the video loads successfully, hide the image (in case it's visible by default)
+        video.onloadeddata = function() {
+          image.style.display = 'none'; // Hide the image if video is loaded
+        };
+          </script>
   </body>
 </html>
