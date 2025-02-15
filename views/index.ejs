@@ -17,7 +17,7 @@
   </style>
   </head>
   <body>
-
+    <br>
     <div class="container ">
       <div class="col mb-3">
         <div class="row">
@@ -37,7 +37,7 @@
                     <div class="row align-items-center">
                         <div class="col-6 text-center">
                             <img class="profile-image rounded-circle" src="images/PM.jpg" alt="Profile Image">
-                            <a href="#"><h3>Muskanpreet Kaur</h3></a>
+                            <h3> Muskanpreet Kaur </h3>
                            
                             
                         </div>
@@ -81,19 +81,51 @@
                 </ul>                             
                
                 </div>
-              <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                <ul class="p-3">
-                  <li><strong>Customer Service Agent</strong> – Start Date: July 29, 2023</li>
-                  <li >Tim Hortons, Montreal, Canada</li>
-                  <ul>
-                      <li>Effectively communicate with a diverse customer base to ensure a high level of service.</li>
-                      <li>Work effectively with team members to enhance service efficiency and customer satisfaction.</li>
-                      <li>Maintain accuracy in order-taking and processing to minimize errors.</li>
-                      <li>Quickly and efficiently resolve customer complaints or issues.</li>
-                  </ul>
-              </ul>
+                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                    <br>
+                  <!-- Customer Service Agent Experience -->
+                  <div class="p-3 mb-3" style=" border-radius: 10px; box-shadow: 2px 2px 6px rgba(235, 231, 231, 0.989);">
+                      <h5><strong>Customer Service Agent</strong></h5>
+                      <p><em>Tim Hortons, Montreal, Canada</em></p>
+                      <ul>
+                          <li>Effectively communicate with a diverse customer base to ensure a high level of service.</li>
+                          <li>Work effectively with team members to enhance service efficiency and customer satisfaction.</li>
+                          <li>Maintain accuracy in order-taking and processing to minimize errors.</li>
+                          <li>Quickly and efficiently resolve customer complaints or issues.</li>
+                      </ul>
+                  </div>
+              
+                  <!-- 3D Character Artist (Internship) Experience -->
+                  <div class="p-3" style=" border-radius: 10px; box-shadow: 2px 2px 6px rgba(235, 231, 231, 0.989);">
+                      <h5><strong>3D Character and Animation Designer (Internship)</strong></h5>
+                      <p><em>Infirnaa</em></p>
+                      <ul>
+                          <li><strong>Objective:</strong> Developed a virtual simulation demo to assist nursing students aspiring to become doctors.</li>
+                          <li><strong>Technologies Used:</strong>
+                              <ul>
+                                  <li><strong>Unity</strong> – Game development & interaction design.</li>
+                                  <li><strong>Blender & MakeHuman</strong> – 3D modeling & character creation.</li>
+                                  <li><strong>Unreal Engine</strong> – Enhancing visual realism & environment simulation.</li>
+                              </ul>
+                          </li>
+                          <li><strong>Key Features:</strong>
+                              <ul>
+                                  <li><strong>Immersive Learning:</strong> Provides an interactive hospital simulation to familiarize students with real-world medical environments.</li>
+                                  <li><strong>Game & Exploration Mode:</strong> Students can either play as a character or explore various hospital units to understand workflows.</li>
+                                  <li><strong>Realistic Scenarios:</strong> Simulates different medical situations, helping students develop critical decision-making skills before entering a real hospital.</li>
+                              </ul>
+                          </li>
+                          <li><strong>Impact:</strong>
+                              <ul>
+                                  <li>Enhances hands-on learning through virtual practice.</li>
+                                  <li>Bridges the gap between theoretical knowledge and real-world medical procedures.</li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
               
               </div>
+              
 
       <!------ Projects tab cards -->   
      
@@ -154,6 +186,7 @@
                   <div>
                     <video id="popupVideo" src="videos/<%= popup_record.imgvid %>" height="300" width="100%" controls autoplay></video>
                     <img id="popupImage" src="images/<%= popup_record.imgvid %>" height="300" width="100%" alt="" style="display: none;">
+                  <!--  <video id="popupVideo2" src="videos/<%= popup_record.imgvid2 %>" height="300" width="100%" controls autoplay ></video> -->
                   </div>
                 </div>
               </div>
@@ -218,17 +251,24 @@
    
             const video = document.getElementById('popupVideo');
         const image = document.getElementById('popupImage');
+        const video2 = document.getElementById('popupVideo2');
 
         // When the video source is invalid
         video.onerror = function() {
           video.style.display = 'none'; // Hide the video
           image.style.display = 'block'; // Show the image
+         
         };
 
+        video2.onerror = function() {
+          video2.style.display = 'none'; // Hide the video
+        };
         // If the video loads successfully, hide the image (in case it's visible by default)
         video.onloadeddata = function() {
           image.style.display = 'none'; // Hide the image if video is loaded
         };
+  
+       
           </script>
   </body>
 </html>
